@@ -54,7 +54,7 @@ namespace Dolgozat
 
         static int keresEtel(string etelNeve)
         {
-           
+
             int index = 0;
             foreach (var item in huto)
             {
@@ -62,7 +62,7 @@ namespace Dolgozat
                 {
                     return index;
                 }
-                index ++;
+                index++;
             }
             return -1;
         }
@@ -95,7 +95,7 @@ namespace Dolgozat
             }
         }
 
-        static void Main(string[] args)
+        static void Eredmeny()
         {
             Feltoltes();
             Console.WriteLine($"A hűtőben {Takarit()} db-nyi termék van.");
@@ -108,9 +108,14 @@ namespace Dolgozat
             }
             else
             {
-                Console.WriteLine($"Az {index+1} helyen van.");
+                Console.WriteLine($"Az {index + 1} helyen van.");
             }
             mghLista();
+        }
+
+        static void Main(string[] args)
+        {
+            Eredmeny();
         }
     }
 }
