@@ -4,8 +4,12 @@ namespace Dolgozat
 {
     internal class Program
     {
+        static Random rnd = new Random();
+
         static string[] huto = new string[10];
 
+        static int[]  szamok = new int[10];
+        //F01-hez tartozók
         static void Feltoltes()
         {
             for (int i = 0; i < huto.Length; i++)
@@ -113,9 +117,37 @@ namespace Dolgozat
             mghLista();
         }
 
+        //F02-höz tartozók
+        static void FeltoltEgyediekkel()
+        {
+            int min = 1;
+            int max = 100;
+            bool checker = false;
+            int seged = 0;
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                do
+                { 
+                    seged = rnd.Next(min, max);
+                    for(int j = 0; j < szamok.Length; j++)
+                    {
+                        if (seged == szamok[i])
+                        {
+                            checker = true;
+                        }
+                    }
+                }
+                while (checker != true);
+
+            }
+            Console.WriteLine(szamok);
+        }
+
         static void Main(string[] args)
         {
-            Eredmeny();
+            //Eredmeny();//F01
+            FeltoltEgyediekkel();
+            
         }
     }
 }
