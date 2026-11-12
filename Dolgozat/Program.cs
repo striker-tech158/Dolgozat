@@ -34,15 +34,22 @@ namespace Dolgozat
             while (valasz != "2");
         }
 
-        static void Takarit()
+        static int Takarit()
         {
             int dbSzam = 0;
             for (int i = 0; i < huto.Length; i++)
             {
-                
-                dbSzam++;
+                if (huto[i] != "")
+                {
+                    huto[dbSzam] = huto[i];
+                    dbSzam++;
+                }
             }
-            Console.WriteLine($"A hűtőben {dbSzam} db-nyi termék van.");
+            for (int j = dbSzam; j < huto.Length; j++)
+            {
+                huto[j] = "";
+            }
+            return dbSzam;
         }
 
         static int keresEtel(string etelNeve)
@@ -62,7 +69,17 @@ namespace Dolgozat
 
         static void mghLista()
         {
-
+            for (int i = 0; i < huto.Length; i++)
+            {
+                if (huto[i] != "")
+                {
+                    if ("aáeéiíoóöőüűuú".Contains(
+                        char.ToLower(huto[i][0])))
+                    {
+                        Console.WriteLine(huto[i]);
+                    }
+                }
+            }
         }
 
         private static void Berak(string elsotermek)
@@ -81,8 +98,7 @@ namespace Dolgozat
         static void Main(string[] args)
         {
             Feltoltes();
-            Takarit();
-
+            Console.WriteLine($"A hűtőben {Takarit()} db-nyi termék van.");
             Console.Write("Kérem adja meg annak a termék nevét amit a hűtőben keres: ");
             string etelNeve = Console.ReadLine();
             int index = keresEtel(etelNeve);
@@ -94,6 +110,7 @@ namespace Dolgozat
             {
                 Console.WriteLine($"Az {index+1} helyen van.");
             }
+            mghLista();
         }
     }
 }
