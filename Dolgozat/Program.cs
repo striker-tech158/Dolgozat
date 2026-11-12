@@ -8,7 +8,7 @@ namespace Dolgozat
 
         static string[] huto = new string[10];
 
-        static int[]  szamok = new int[10];
+        static int[] szamok = new int[10];
         //F01-hez tartozók
         static void Feltoltes()
         {
@@ -127,9 +127,9 @@ namespace Dolgozat
             for (int i = 0; i < szamok.Length; i++)
             {
                 do
-                { 
+                {
                     seged = rnd.Next(min, max);
-                    for(int j = 0; j < szamok.Length; j++)
+                    for (int j = 0; j < szamok.Length; j++)
                     {
                         if (seged == szamok[i])
                         {
@@ -143,11 +143,26 @@ namespace Dolgozat
             Console.WriteLine(szamok);
         }
 
+        static void LeghosszabbNovekvo()
+        {
+
+        }
+
+        static void AtlagAlattiDuplazas()
+        {
+
+        }
+
+        static void Eredmeny2()
+        {
+            FeltoltEgyediekkel();
+            LeghosszabbNovekvo();
+            AtlagAlattiDuplazas();
+        }
         static void Main(string[] args)
         {
-            //Eredmeny();//F01
-            FeltoltEgyediekkel();
-            
+            Eredmeny();//F01
+            Eredmeny2();//F02
         }
     }
 }
